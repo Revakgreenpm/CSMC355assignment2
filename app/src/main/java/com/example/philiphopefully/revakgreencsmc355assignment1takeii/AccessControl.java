@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class AccessControl extends AppCompatActivity {
 
-    Global g=Global.getInstance();
     TextView current;
     String code="";
     Button switchScreen;
@@ -68,12 +67,10 @@ public class AccessControl extends AppCompatActivity {
     void submit(){
         Intent move = new Intent(AccessControl.this, welcome.class);
         if(code.equals("1234")){
-            g.setLocked(false);
             move.putExtra("unlockText","The App is unlocked.");
 
         }
         else{
-            g.setLocked(true);
             move.putExtra("unlockText","\"Welcome to the App! The App is LOCKED!");
         }
         code="";

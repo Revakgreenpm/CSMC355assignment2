@@ -14,8 +14,6 @@ public class welcome extends AppCompatActivity {
     Button switchScreen;
     TextView message;
     String text;
-    boolean locked=true;
-    Global g= Global.getInstance();
     Intent i;
 
 
