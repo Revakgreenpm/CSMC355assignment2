@@ -66,15 +66,18 @@ public class AccessControl extends AppCompatActivity {
     void addFour(){code=code+"4";  }
 
     void submit(){
+        Intent move = new Intent(AccessControl.this, welcome.class);
         if(code.equals("1234")){
             g.setLocked(false);
+            move.putExtra("unlockText","The App is unlocked.");
 
         }
         else{
             g.setLocked(true);
+            move.putExtra("unlockText","\"Welcome to the App! The App is LOCKED!");
         }
         code="";
-        Intent move = new Intent(AccessControl.this, welcome.class);
+
         startActivity(move);
     }
 }

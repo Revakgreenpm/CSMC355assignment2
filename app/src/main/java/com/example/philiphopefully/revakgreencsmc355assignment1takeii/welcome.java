@@ -13,16 +13,17 @@ public class welcome extends AppCompatActivity {
 
     Button switchScreen;
     TextView message;
+    String text;
     boolean locked=true;
     Global g= Global.getInstance();
+    Intent i;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(g.getLocked()==(null)){
-            g.setLocked(true);
-        }
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         switchScreen = (Button) findViewById(R.id.unlock);
@@ -37,23 +38,17 @@ public class welcome extends AppCompatActivity {
 
         );
         message=(TextView) findViewById(R.id.mainText);
+        Bundle b=getIntent().getExtras();
+        if(b!=null){
+          text= b.getString("unlockText");
 
-    }
-
-    protected void onUpdate(){
-        changeMess();
-
-    }
-
-    public void changeMess(){
-        message= (TextView)(findViewById(R.id.mainText));
-        locked=g.getLocked();
-        if(locked){
-            message.setText("Welcome to the App! The App is LOCKED!");
-        }
-        else if(!locked){
-            message.setText("The App is Unlocked.");
+            message.setText(text);
         }
 
+
     }
+
+
+
+
 }
